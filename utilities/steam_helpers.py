@@ -14,7 +14,7 @@ def get_leaderboard(leaderboard_id: id) -> bytes:
     # Currently we only care about the top 200 entries, but this should probably be turned into a configurable option
     # as users outside the top 200 likely want to know their global rankings. Has DB size (table top_score)
     # considerations as it's an append-only run-time-stamped table for historical tracking.
-    url = f"https://steamcommunity.com/stats/{STEAM_APPID}/leaderboards/{leaderboard_id}?xml=1&start=1&end=200"
+    url = f"https://steamcommunity.com/stats/{STEAM_APPID}/leaderboards/{leaderboard_id}?xml=1&start=1&end=5000"
     resp = requests.get(url)
 
     return resp.content
